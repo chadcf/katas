@@ -16,14 +16,12 @@ end
 def merge(first, rest)
   if first.empty?
     rest
+  elsif rest.empty?
+    first
+  elsif first[0] < rest[0]
+    merge(first.drop(1), rest).unshift first[0]
   else
-    if rest.empty?
-      first
-    elsif first[0] < rest[0]
-      merge(first.drop(1), rest).unshift first[0]
-    else
-      merge(first, rest.drop(1)).unshift rest[0]
-    end
+    merge(first, rest.drop(1)).unshift rest[0]
   end
 end
 
