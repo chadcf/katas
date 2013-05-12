@@ -13,9 +13,9 @@ end
 
 def imperative_search(n)
   pairs = Array.new
-  (1..n).each do |i|
-    (1..n).each do |j|
-      if j < i && i < n && is_prime?(i+j)
+  (1...n).each do |i|
+    (1...i).each do |j|
+      if is_prime?(i+j)
         pairs << [i,j]
       end
     end
