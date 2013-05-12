@@ -24,7 +24,7 @@ def imperative_search(n)
 end
 
 def functional_search(n)
-  pairs = (1..n-1).flat_map {|i| (1..i-1).map {|j| [i,j]}}
+  pairs = (1...n).flat_map {|i| (1...i).map {|j| [i,j]}}
   pairs.select{|i,j| is_prime?(i+j)}
 end
 
